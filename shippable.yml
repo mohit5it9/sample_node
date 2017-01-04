@@ -19,25 +19,17 @@ env:
 build:
   pre_ci:
     - echo "Good morning 2"
-    - echo "testing"
+    - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ] ; then export IMAGE_TAG="1.0.0" ; else export IMAGE_TAG="dev" ; fi
+    - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ] ; then export BUILD_TASK="build" ; else export BUILD_TASK="test" ; fi
+    - echo $IMAGE_TAG
+    - echo $BUILD_TASK
 
   pre_ci_boot:
-    image_name: kanthchandra/sample_node
-    image_tag: latest
-    pull: false
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+    image_name: 0000000000000000.dkr.ecr.us-east-1.amazonaws.com/kl
+    image_tag: $IMAGE_TAG
+    pull: true
+    options: "-e HOME=/root"
+    - echo $IMAGE_TAG
 
   ci:
-    - ps -eax
-    - ls -al
-
-  post_ci:
-    - echo "post ci stage. Finished ! yo"
-
-  smoke_test:
-    - sudo ls /
-
-deploy:
-  pre_build:
-    - ls
-    - ls -al
+    - npm install
