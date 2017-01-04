@@ -29,7 +29,7 @@ build:
     image_tag: $IMAGE_TAG
     pull: true
     options: "-e HOME=/root"
-    - echo $IMAGE_TAG
+    #- echo $IMAGE_TAG
 
   ci:
     - npm install
