@@ -21,7 +21,7 @@ build:
     - echo "Good morning 2"
     - echo "testing"
     - export IMAGE_TAG="latest"
-    - export FOO="latest.1"
+    #- export FOO="latest.1"
     - echo $FOO
 
   pre_ci_boot:
