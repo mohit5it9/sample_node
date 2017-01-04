@@ -22,6 +22,8 @@ build:
     - export IMAGE_TAG="driftking"
     #- if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ] ; then export BUILD_TASK="build" ; else export BUILD_TASK="test" ; fi
     - echo $IMAGE_TAG
+    - echo $ARCHIVE_DIR
+    - echo $JOB_NUMBER
     #- echo $BUILD_TASK
 
   pre_ci_boot:
