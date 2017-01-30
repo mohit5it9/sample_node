@@ -33,7 +33,8 @@ build:
   ci:
     - ps -eax
     - ls -al
-    - echo "image tag is: " + $IMAGE_TAG
+    - echo "image tag is: "
+    - echo $IMAGE_TAG
     
 
   post_ci:
