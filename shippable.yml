@@ -32,7 +32,9 @@ build:
 
   ci:
     - ps -eax
-    - ls -al    
+    - ls -al
+    - echo $IMAGE_TAG
+    - echo "hello"
 
   post_ci:
     - echo "post ci stage. Finished ! yo"
