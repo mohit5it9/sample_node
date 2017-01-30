@@ -35,6 +35,7 @@ build:
     - ls -al
     - echo $IMAGE_TAG
     - echo "hello"
+    - uname -a
 
   post_ci:
     - echo "post ci stage. Finished ! yo"
